@@ -70,13 +70,10 @@ export default function Header({
               <span>Call Specialist: {COMPANY_INFO.phone}</span>
             </a>
             <span className="text-slate-600 hidden sm:inline">|</span>
-            <button 
-              onClick={onOpenQuoteModal}
-              className="flex items-center gap-1 text-amber-300 hover:text-amber-200 font-medium transition-colors"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Request Project Quote</span>
-            </button>
+            <span className="flex items-center gap-1.5 text-rose-300 font-bold">
+              <Flame className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
+              <span>Weekly Clearance: Save up to 67%</span>
+            </span>
           </div>
         </div>
       </div>
@@ -182,13 +179,17 @@ export default function Header({
               </a>
             </div>
 
-            {/* Request Quote Button */}
+            {/* Hot Deals & Clearance Button */}
             <button
-              onClick={onOpenQuoteModal}
-              className="hidden sm:flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3.5 py-2.5 rounded-xl border border-slate-300 transition-all shadow-xs"
+              onClick={() => {
+                onSelectCategory('Hot Sellers');
+                const el = document.getElementById('products-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hidden sm:flex items-center gap-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold px-3.5 py-2.5 rounded-xl border border-rose-200 transition-all shadow-xs"
             >
-              <FileText className="w-4 h-4 text-cyan-700" />
-              <span>Quick Quote</span>
+              <Flame className="w-4 h-4 text-rose-600 fill-rose-600" />
+              <span>Deals & Clearance</span>
             </button>
 
             {/* Cart / Quote Basket Drawer Button */}
